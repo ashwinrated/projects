@@ -59,7 +59,7 @@ const ScreenRecorder = () => {
   return (
     <div style={{ textAlign: 'center', marginTop: '20px' }}>
       <h2>Screen Recorder</h2>
-      <h3>{{error}}</h3>
+      <h3>{error}</h3>
       <div>
         {!isRecording ? (
           <button onClick={startRecording} style={{ padding: '10px', margin: '5px' }}>
