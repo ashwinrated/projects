@@ -11,7 +11,7 @@ const ScreenRecorder = () => {
     try {
       // Request screen recording permission
       const stream = await navigator.mediaDevices.getDisplayMedia({
-        video: { mediaSource: 'screen' },
+        video: true,
         audio: true, // Optional: Include system audio
       });
 
