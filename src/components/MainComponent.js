@@ -4,6 +4,7 @@ import { saveAs } from 'file-saver';
 const ScreenRecorder = () => {
   const [isRecording, setIsRecording] = useState(false);
   const [videoURL, setVideoURL] = useState(null);
+  const [error, setError] = useState("");
   const mediaRecorderRef = useRef(null);
   const recordedChunks = useRef([]);
 
@@ -38,6 +39,7 @@ const ScreenRecorder = () => {
       mediaRecorderRef.current.start();
       setIsRecording(true);
     } catch (err) {
+      setError(JSON.stringify(err));
       console.error('Error starting screen recording:', err);
       alert('Screen recording not allowed or unsupported in this browser.');
     }
@@ -57,6 +59,7 @@ const ScreenRecorder = () => {
   return (
     <div style={{ textAlign: 'center', marginTop: '20px' }}>
       <h2>Screen Recorder</h2>
+      <h3>{{error}}</h3>
       <div>
         {!isRecording ? (
           <button onClick={startRecording} style={{ padding: '10px', margin: '5px' }}>
